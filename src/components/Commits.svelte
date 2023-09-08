@@ -1,5 +1,5 @@
 <script lang="ts">
-    import getData from "./commits";
+    import getData from "./utils/commits";
     let promise = getData()
 </script>
 
@@ -34,12 +34,11 @@
 
 <style>
     section{
-        height: 450px;
         max-width: 400px;
     }
 
     .listComits{
-        max-height: 450px;
+        max-height: calc( ( 50px + 10px * 2 ) * 5);
         overflow: scroll;
     
         padding: 0;

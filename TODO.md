@@ -1,9 +1,10 @@
 [ ] - List of news version (use commist from github)
 [ ] - Links to game
 [ ] - Instruction how to run game localhost
+[ ] - Tab of servers
 
 
-color
+colors: 
 
 #747c1c
 #bb7476

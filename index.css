@@ -1,7 +1,20 @@
-body{
-    
-    background-color: #545c73;
+html{
     position: relative;
+}
+
+section{
+    background-color: #545c73;
+  }
+
+body{
+    background-image: url(./src/assets/images/bg.png);
+    background-size: cover;
+    background-position: 50%;
+    image-rendering: pixelated;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    /* background-color: #545c73; */
     margin: 0;
 }
 

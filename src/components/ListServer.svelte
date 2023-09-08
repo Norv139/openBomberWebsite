@@ -1,93 +1,70 @@
 <script>
     import Cherector from "./Cherector.svelte";
-    import { listOfPlaers } from './utils/hardcode'
 
-    let typeFilter = 'win' // harcode type for sort fn
+    import { topServers } from './utils/hardcode'
+
+
     let minCount = 0
-    let maxCount = 5 
+    let maxCount = 5
     // need fn for change min & max -> min+=5 & max+=5
 
-   // @ts-ignore
-     $:sortFn = (anyList) => { // mb not good relise \ rewrite
-        switch (typeFilter) {
-            case 'win':
-                // @ts-ignore
-                return anyList.sort((a, b) => a.win > b.win ? -1 : 1 ).slice(minCount, maxCount)
-            case 'kill':
-                // @ts-ignore
-                return anyList.sort((a, b) => a.kill > b.kill ? -1 : 1 ).slice(minCount, maxCount)
-            case 'death':
-                // @ts-ignore
-                return anyList.sort((a, b) => a.death > b.death ? -1 : 1 ).slice(minCount, maxCount)
-            default:
-                return anyList.slice(minCount, maxCount)
-        }
-    }
-
-    // @ts-ignore
     let promisList = new Promise((resolve, reject) => { // harcode -> fetch data from api
-        setTimeout(() => {resolve(listOfPlaers);}, 500);
+        setTimeout(() => {resolve(topServers);}, 1000);
     })
 
 
 </script>
 
 <section class="top">
-    <h2>Top plaers</h2>
+    <h2>Top servers</h2>
     <ul class="list">
 
         {#await promisList }
-            {#each Array(5) as item, index}
+            {#each Array(5) as server, index }
                 <ol class="list-item" >
                     <h1 class="list-item_number">{index + 1}</h1>
                     <div class="card">
-                        <h3 class="card_info-name">Waiting ...</h3>
+                        <h3 class="card_info-name">Loading...</h3>
                         <div class="card_info">
-                            <Cherector laer={0} max='50px'/>
-                            <p class="card_info-text">
-                                Waiting ...
-                            </p>
+                            online: ?
                         </div>
                     </div>
                 </ol>
             {/each}
+
             {:then resultList} 
-            {#each sortFn(resultList) as item, index}
+    
+            {#each resultList as server, index }
                 <ol class="list-item" >
                     <h1 class="list-item_number">{index + 1}</h1>
                     <div class="card">
-                        <h3 class="card_info-name">{item.plaer.name}</h3>
+                        <h3 class="card_info-name">{server.name}</h3>
                         <div class="card_info">
-                            <Cherector laer={item.plaer.skin} max='50px'/>
                             <p class="card_info-text">
-                                <span>win</span>
-                                <span>{item.win}</span>
+                                online: {server.online}
                             </p>
-                            <p class="card_info-text">
-                                <span>kill</span>
-                                <span>{item.kill}</span>
-                            </p>
-                            <p class="card_info-text">
-                                <span>death</span>
-                                <span>{item.death}</span>
-                            </p>
+                            <!-- svelte-ignore a11y-missing-attribute -->
+                            <a class="card_info-text">
+                                conncet
+                            </a>
                         </div>
                     </div>
                 </ol>
             {/each}
+            
+            
         {/await}
 
     </ul>
     <div class="control">
-        <button on:click={()=>{ typeFilter = 'win' }}>win</button>
-        <button on:click={()=>{ typeFilter = 'kill' }}>kill</button>
-        <button on:click={()=>{ typeFilter = 'death' }}>death</button>
+        <!-- <button on:click={()=>{ }}>win</button>
+        <button on:click={()=>{ }}>kill</button>
+        <button on:click={()=>{ }}>death</button> -->
     </div>
 </section>
 
 <style>
     .control{
-        margin-top: 10px;
         display: flex;
         justify-content: space-between;
     }
@@ -95,7 +72,6 @@
         align-items: center;
         width: 400px;
     }
-
     button{
         font-family: 'PPixel';
         border: 3px solid #141d3b;
@@ -103,7 +79,6 @@
         color: white;
         padding: 6px;
     }
-
     button:hover{
         font-family: 'PPixel';
         border: 3px solid #141d3b;
@@ -111,7 +86,6 @@
         color: white;
         padding: 6px;
     }
-
     .list{
         border: 2px solid black;
         margin: 0;
@@ -147,12 +121,12 @@
         word-wrap: none;
     }
     .card_info{
-        margin-top: 20px;
+        margin-top: 30px;
         display: flex;
-        gap: 5px;
-        align-items: center;
-        text-align: center;
-        
+        flex-direction: column;
+        gap: 10px;
+        align-items: start;
+        text-align: start
     }
     .card_info-name{
         display: block;
@@ -161,12 +135,15 @@
         margin: 0;
     }
     .card_info-text{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        margin: 0;
+        align-items: start;
+        text-align: start;
     }
     .card_info span:last-child{
         margin-top: 5px;
+    }
+    a{
+        color: #14d05c;
     }
 
 </style>

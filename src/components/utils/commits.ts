@@ -1,4 +1,4 @@
-import type { ICommitObj }  from "./utils";
+import type { ICommitObj }  from "./AnyInteface";
 
 // const baseUrl = "https://github.com/"
 const baseUrlAPI = "https://api.github.com/repos/"

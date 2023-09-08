@@ -4,7 +4,8 @@
   import Commits from './components/Commits.svelte';
   import ViewCharacters from './components/ViewCharacters.svelte';
   import Cherector from './components/Cherector.svelte';
-  import Deadpool from './components/TopPlayers.svelte';
+  import Top from './components/TopPlayers.svelte';
+  import ListServer from './components/ListServer.svelte';
 </script>
 
 <header>
@@ -15,12 +16,37 @@
   <p>[links]</p> 
 </header>
 <main>
-  <ViewCharacters />
-  <Deadpool/>
+  
+  
+  <ListServer />
+  
+  <Top/>
   <Commits />
+  <ViewCharacters />
+  
+  
 </main>
+<div class="bg-img"></div>
 
 <style>
+
+  main{
+    
+    background-color: 
+    #404040d0;
+    /* #545c73b5; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+
+    /* background-color: #00a33e23; */
+
+    
+  }
+
 
   :root{
     font-family: 'PPixel';
@@ -39,15 +65,10 @@
     /* width: 100%; */
     /* border: 1px solid black; */
     align-items: center;
-  }
-
-  main{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 10px;
+    height: 60px;
+    top: 0;
+    background-color: #545c73;
+    outline: 2px solid #171920;
   }
 
 </style>
