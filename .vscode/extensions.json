@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "svelte.svelte-vscode",
+    "ms-vscode.vscode-typescript-next",
+    "rbbit.typescript-hero",
+    "syler.sass-indented"
+  ]
+}
