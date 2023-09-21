@@ -1,3 +1,3 @@
 # Website
 
-[website](norv139.github.io/openBomberWebsite/)
+[website](https://norv139.github.io/openBomberWebsite/)
