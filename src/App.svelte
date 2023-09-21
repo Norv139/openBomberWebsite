@@ -1,63 +1,51 @@
 <script lang="ts">
-  import './styles/fonts.css';
-
-  import Commits from './components/Commits.svelte';
-  import ViewCharacters from './components/ViewCharacters.svelte';
-  import Cherector from './components/Cherector.svelte';
-  import Top from './components/TopPlayers.svelte';
-  import ListServer from './components/ListServer.svelte';
+  import Commits from "components/Commits.svelte";
+  import ViewCharacters from "components/ViewCharacters.svelte";
+  import Cherector from "components/Cherector.svelte";
+  import Top from "components/TopPlayers.svelte";
+  import ListServer from "components/ListServer.svelte";
 </script>
 
 <header>
   <a href="https://openbomber.ru/" class="logo"><h3>openbomber</h3></a>
 
-  <p>[menu]</p> 
-  
-  <p>[links]</p> 
+  <p>[menu]</p>
+
+  <p>[links]</p>
 </header>
 <main>
-  
-  
   <ListServer />
-  
-  <Top/>
+
+  <Top />
   <Commits />
   <ViewCharacters />
-  
-  
 </main>
-<div class="bg-img"></div>
+<div class="bg-img" />
 
 <style>
-
-  main{
-    
-    background-color: 
-    #404040d0;
+  main {
+    background-color: #404040d0;
     /* #545c73b5; */
     position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap:10px;
+    gap: 10px;
 
     /* background-color: #00a33e23; */
-
-    
   }
 
-
-  :root{
-    font-family: 'PPixel';
+  :root {
+    font-family: "PPixel";
   }
 
-  .logo{
+  .logo {
     color: #14d05c;
   }
 
-  header{
-    position:sticky;
+  header {
+    position: sticky;
     display: flex;
     z-index: 10;
     justify-content: space-around;
@@ -70,5 +58,4 @@
     background-color: #545c73;
     outline: 2px solid #171920;
   }
-
 </style>

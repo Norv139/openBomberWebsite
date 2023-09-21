@@ -1,3 +1,5 @@
+@import url(styles/fonts.css);
+
 html{
     position: relative;
 }
@@ -7,7 +9,7 @@ section{
   }
 
 body{
-    background-image: url(./src/assets/images/bg.png);
+    background-image: url(assets/images/bg.png);
     background-size: cover;
     background-position: 50%;
     image-rendering: pixelated;
@@ -28,5 +30,3 @@ a:hover{
     color: #1c2c44;
     text-decoration: underline 2px;
 }
-
-/* color: #82ff23; */
